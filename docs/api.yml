@@ -97,11 +97,27 @@ paths:
         - name: authorName
           in: query
           description: |
-            Filter returned authors by given name. 
+            Filter returned authors by given name.
             If not provided, then list is not filtered.
           schema:
             type: string
           required: false
+        - in: query
+          name: page
+          description:
+            Page number for pagination (default: 1)
+          required: false
+          schema:
+            type: integer
+            default: 1
+        - in: query
+          name: pageSize
+          description:
+            Number of items per page (default: 50)
+          required: false
+          schema:
+            type: integer
+            default: 50
       responses:
         200:
           description: The list of filtered authors
@@ -111,6 +127,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Author'
+
+
     put:
       summary: Create or update authors
       operationId: crupdateAuthors
@@ -176,26 +194,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Book'
-  /books/authors:
-    put:
-      summary: Attach Authors to Books
-      operationId: attachAuthorsToBooks
-      requestBody:
+/books/authors:
+  put:
+    summary: Attach Authors to Books
+    operationId: attachAuthorsToBooks
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/UpdateBookAuthor'
+    responses:
+      200:
+        description: Authors attached to Books successfully
         content:
           application/json:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/UpdateBookAuthor'
-      responses:
-        200:
-          description: Authors attached to Books successfully
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Book'
+                $ref: '#/components/schemas/Book'
 components:
   schemas:
     CrupdateBook:
@@ -236,10 +254,19 @@ components:
       enum:
         - M
         - F
-    UpdateBookAuthor:
-      type: object
-      properties:
-        bookId:
-          type: string
-        authorId:
-          type: string
+UpdateBookAuthor:
+  type: object
+  properties:
+    bookId:
+      type: string
+    authorId:
+      type: string
+
+
+
+
+
+
+
+
+
