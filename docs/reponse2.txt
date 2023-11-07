@@ -1,8 +1,0 @@
-b - i - UpdateBookAuthor contient uniquement les identifiants (bookId et authorId)
-parce que L'opération consiste simplement à établir une relation entre un Book
-existant et un Author existant en utilisant leurs identifiants respectifs
-
-  ii - UpdateBookAuthor devrait inclure les propriétés de CrupdateBook et Author
-lorsque nous avons besoin de mettre à jour ou de créer à la fois le Book et l'Author en même temps.
-Cependant, dans notre cas, nous avons spécifiquement demandé une opération pour attacher un Author
-à un Book, c'est pourquoi UpdateBookAuthor ne contient que les identifiants.
