@@ -1,9 +1,0 @@
-
-a- Oui, mais ce n'est pas courant. Les en-têtes de la
-requête peuvent être utilisés pour la pagination,
-mais les query parameters sont plus couramment utilisés.
-
-
-b- Non, ce n'est pas nécessaire. Les query parameters sont
-plus adaptés pour spécifier des options de pagination dans l'URL,
-ce qui rend les requêtes plus explicites et faciles à comprendre.
