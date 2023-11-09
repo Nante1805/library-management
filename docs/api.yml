@@ -272,12 +272,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Topic'
-content:
-  application/json:
-    schema:
-      type: array
-      items:
-        $ref: '#/components/schemas/Book'
 
 /authorTopics:
   get:
